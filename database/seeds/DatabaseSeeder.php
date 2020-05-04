@@ -5,20 +5,13 @@ use Illuminate\Database\Seeder;
 class DatabaseSeeder extends Seeder
 {
     /**
-     * Run the database seeds.
+     * Seed the application's database.
      *
      * @return void
      */
     public function run()
     {
-         $this->call(UsersTableSeeder::class);
+        // $this->call(UserSeeder::class);
+        factory(App\Models\User::class, 50)->create();
     }
-
-    public static function truncateTable($table)
-    {
-        DB::statement(' SET foreign_key_checks = 0');
-        DB::table($table)->truncate();
-        DB::statement(' SET foreign_key_checks = 1');
-    }
-
 }

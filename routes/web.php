@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,5 +27,9 @@ Route::group([
         'uses' => 'ErrorPageController@getAlwaysError'
     ])->where('id', '[0-9]+');
 });
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
